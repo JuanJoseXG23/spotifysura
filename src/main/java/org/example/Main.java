@@ -8,8 +8,6 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
-
         //spotify
         //Necesitamos registrar canciones en la base de datos
         //de spotify, cada cancion debe de tener
@@ -20,10 +18,17 @@ public class Main {
         //necesidades (Intentar no pasarme de 50 lineas de codigo)
         Scanner pedirDato = new Scanner(System.in);
         ArrayList<HashMap<String, Object>> canciones = new ArrayList<>();
-        HashMap<String, Object> cancion = new HashMap<>();
-        while(true) {
 
+        String decision = "entrar";
+        while(!decision.equals("salir")) {
+            System.out.println("Digita salir si quieres terminar");
+            decision = pedirDato.nextLine();
+            System.out.println("Digitaste" + decision);
 
+            if(decision.equals("salir")) {
+                break;
+            }
+            HashMap<String, Object> cancion = new HashMap<>();
             System.out.print("Digita el nombre de la cancion: ");
             cancion.put("nombre: " , pedirDato.nextLine());
 
@@ -47,6 +52,13 @@ public class Main {
 
             pedirDato.nextLine();
 
+
+            //
+            canciones.add(cancion);
+
+            //Mostrando la lista
+            System.out.println(canciones);
         }
+
     }
 }
